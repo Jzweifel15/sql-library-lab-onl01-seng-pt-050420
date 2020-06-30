@@ -1,1 +1,2 @@
-UPDATE characters SET 
+UPDATE characters SET characters.species = "Martian" 
+WHERE characters.species = "cylon";
