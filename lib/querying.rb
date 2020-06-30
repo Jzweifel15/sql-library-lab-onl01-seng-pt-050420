@@ -22,7 +22,11 @@ def select_name_and_series_subgenres_of_authors
 end
 
 def select_series_title_with_most_human_characters
-  "SELECT "
+  "SELECT series.title FROM series 
+   LEFT OUTER JOIN books ON books.series_id = series.id 
+   LEFT OUTER JOIN character_books ON character_books.book_id = books.id 
+   LEFT OUTER JOIN characters ON character_books.character_id = characters.id 
+   WHERE characters.species = 'human' GROUP BY series.title;"
 end
 
 def select_character_names_and_number_of_books_they_are_in
